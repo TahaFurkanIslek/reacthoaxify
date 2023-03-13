@@ -3,6 +3,7 @@ import { getUsers } from '../api/apiCalls'
 import { useTranslation } from 'react-i18next'
 import UserListItem from './UserListItem'
 import { useApiProgress } from '../shared/ApiProgress'
+import Spinner from './Spinner'
 
 
 const UserList = () => {
@@ -14,7 +15,7 @@ const UserList = () => {
 
     const[loadFailure,setLoadFailure]=useState(false)
 
-    const pendingApiCall = useApiProgress('/api/1.0/users?page')
+    const pendingApiCall = useApiProgress('get','/api/1.0/users?page')
 
     useEffect(() => {
         loadUsers()
@@ -49,12 +50,8 @@ const UserList = () => {
     )
     if (pendingApiCall) {
         actionDiv = (
-            <div className="d-flex justify-content-center">
-                <div className="spinner-border text-black-50">
-                    <span className="sr-only"></span>
-                </div>
-            </div>
-        )
+            <Spinner/>
+            )
     }
 
     return (

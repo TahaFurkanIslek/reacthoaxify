@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import {register} from 'timeago.js'
 
 i18n.use(initReactI18next).init({
     resources:{
@@ -16,7 +17,16 @@ i18n.use(initReactI18next).init({
                 'Users':'Users',
                 'Previous':'< Previous',
                 'Next':'Next >',
-                'Load Failure':'Load Failure'
+                'Load Failure':'Load Failure',
+                'User not found':'User not found',
+                'Edit':'Edit',
+                'Change Display Name':'Change Display Name',
+                'Save':'Save',
+                'Cancel':'Cancel',
+                'My Profile':'My Profile',
+                'There are no hoaxes':'There are no hoaxes',
+                'Load old hoaxes':'Load old hoaxes',
+                'There are new hoaxes':'There are new hoaxes'
             }
         },
         tr:{
@@ -32,7 +42,17 @@ i18n.use(initReactI18next).init({
                 'Users':'Kullanıcılar',
                 'Previous':'< Geri',
                 'Next':'İleri >',
-                'Load Failure':'Liste alınamadı'
+                'Load Failure':'Liste alınamadı',
+                'User not found':'Kullanıcı bulunamadı',
+                'Edit':'Düzenle',
+                'Change Display Name':'Görünür İsminizi Değiştirin',
+                'Save':'Kaydet',
+                'Cancel':'İptal Et',
+                'My Profile':'Hesabım',
+                'There are no hoaxes':'Hoax bulunamadı',
+                'Load old hoaxes':'Geçmiş hoaxları getir',
+                'There are new hoaxes':'Yeni hoaxlar var'
+
                 
             }
         }
@@ -49,5 +69,25 @@ i18n.use(initReactI18next).init({
         wait:true
     }
 })
+
+const timeagoTR=(number, index)=> {
+    return [
+      ['az önce', 'şimdi'],
+      ['%s saniye önce', '%s saniye içinde'],
+      ['1 dakika önce', '1 dakika içinde'],
+      ['%s dakika önce', '%s dakika içinde'],
+      ['1 saat önce', '1 saat içinde'],
+      ['%s saat önce', '%s saat içinde'],
+      ['1 gün önce', '1 gün içinde'],
+      ['%s gün önce', '%s gün içinde'],
+      ['1 hafta önce', '1 hafta içinde'],
+      ['%s hafta önce', '%s hafta içinde'],
+      ['1 ay önce', '1 ay içinde'],
+      ['%s ay önce', '%s ay içinde'],
+      ['1 yıl önce', '1 yıl içinde'],
+      ['%s yıl önce', '%s yıl içinde'],
+    ][index]
+  }
+  register('tr',timeagoTR)
 
 export default i18n

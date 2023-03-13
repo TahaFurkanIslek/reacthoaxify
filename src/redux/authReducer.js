@@ -16,6 +16,12 @@ const defaultState={
             ...action.payload,
             isLoggedIn:true
         }
+      }else if(action.type===ACTIONS.UPDATE_SUCCESS){
+        return{
+            ...state,
+            displayName:action.payload.displayName,
+            image:action.payload.image
+        }
       }
       return state
   }
